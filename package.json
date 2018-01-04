@@ -10,15 +10,33 @@
     "categories": [
         "Other"
     ],
-    "activationEvents": [
-        "onCommand:extension.sayHello"
-    ],
     "main": "./out/extension",
+    "activationEvents": [ "*" ],
     "contributes": {
-        "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
-        }]
+        "commands": [
+            {
+                "command": "extension.jumpBack",
+                "title": "Jump Back",
+                "icon": "./assets/JumpBack.png"
+            },
+            {
+                "command": "extension.jumpTo",
+                "title": "Jump To",
+                "icon": "./assets/JumpTo.png"
+            }
+        ],
+        "menus": {
+            "touchBar": [
+                {
+                    "command": "extension.jumpBack",
+                    "group": "editing"
+                },
+                {
+                    "command": "extension.jumpTo",
+                    "group": "editing"
+                }
+            ]
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
